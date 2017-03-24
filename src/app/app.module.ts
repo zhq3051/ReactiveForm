@@ -4,12 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HeroDetailComponent} from './hero-detail.component';
+import { HeroDetailComponent } from './hero-detail5.component';
+import { HeroListComponent } from './hero-list.component';
+import { HeroDetail7Component } from './hero-detail7.component';
+import { HeroService } from './hero.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroListComponent,
+    HeroDetail7Component
   ],
   imports: [
     BrowserModule,
@@ -17,7 +22,7 @@ import { HeroDetailComponent} from './hero-detail.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

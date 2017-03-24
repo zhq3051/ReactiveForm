@@ -6,8 +6,8 @@ import { states } from './data-models';
 
 @Component(
     {
-        selector: 'hero-detail',
-        templateUrl: './hero-detail.component.html'
+        selector: 'hero-detail5',
+        templateUrl: './hero-detail5.component.html'
     }
 )
 
@@ -20,12 +20,14 @@ export class HeroDetailComponent {
     }
 
     createForm() {
-        this.heroForm = this.fb.group({
+        this.heroForm = this.fb.group({         // parent form group
             name: ['', Validators.required],
-            street: '',
-            city: '',
-            state: '',
-            zip: '',
+            address: this.fb.group({            // child form group
+                street: '',
+                city: '',
+                state: '',
+                zip: ''
+            }),
             power: '',
             sidekick: ''
         });

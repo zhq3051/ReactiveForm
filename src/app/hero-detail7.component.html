@@ -1,0 +1,12 @@
+<form [formGroup]="heroForm" (ng-submit)="onSubmit()" novalidate>
+  <div style="margin-bottom: 1em">
+    <button type="submit" [disabled]="heroForm.pristine" class="btn btn-success">Save</button>&nbsp;
+    <button type="reset" (click)="revert()" [disabled]="heroForm.pristine" class="btn btn-danger">Revert</button>
+  </div>
+  <!-- Hero detail controls -->
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+</form>
