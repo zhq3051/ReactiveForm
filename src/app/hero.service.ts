@@ -19,7 +19,7 @@ export class HeroService {
   // fake server get;
   getHeroes(): Observable<Hero[]> {
     return Observable.of<Hero[]>(heroes).delay(this.delayMs); // simulate latency with delay
-    //return of(heroes).delay(this.delayMs);
+    // return of(heroes).delay(this.delayMs);
 }
 
   updateHero(hero: Hero): Observable<Hero> {

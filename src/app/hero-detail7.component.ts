@@ -44,4 +44,31 @@ export class HeroDetail7Component implements OnChanges {
     const addressFormArray = this.fb.array(addressFGs);
     this.heroForm.setControl('secretLairs', addressFormArray);
   }
+
+  addLair() {
+    this.secretLairs.push(this.fb.group(new Address()));
+  }
+
+  onSubmit() {
+    this.hero = this.prepareSaveHero();
+    this.heroesService.updateHero(this.hero).subscribe(/* error handling*/);
+    this.ngOnChanges();
+  }
+
+  prepareSaveHero(): Hero {
+    const formModel = this.heroForm.value;
+
+    // deep copy of form model lairs
+    const secretLairDeepCopy: Address[] = formModel.secretLairs.map((address: Address) => Object.assign({}, address));
+
+    // return new 'Hero' object containning a combination of original hero value(s)
+    // and deep copies of changed form model values
+    const saveHero: Hero = {
+      id: this.hero.id,
+      name: formModel.name as string,
+      // addresses: formModel.sceretLairs //<-- bad
+      addresses: secretLairDeepCopy
+    };
+    return saveHero;
+  }
 }
