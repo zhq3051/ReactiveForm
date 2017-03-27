@@ -49,6 +49,9 @@
       <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
       <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
   </div>
+  <div>
+    radio: {{ heroForm.value | json }}
+  </div>
   <div class="checkbox">
     <label class="center-block">
         <input type="checkbox" formControlName="sidekick">I have a sidekick.

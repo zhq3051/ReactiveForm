@@ -30,7 +30,8 @@ export class HeroDetail7Component implements OnChanges {
 
   ngOnChanges() {
     this.heroForm.reset({
-      name: this.hero.name
+      name: this.hero.name,
+      power: this.hero.power
     });
     this.setAddress(this.hero.addresses);
   }
@@ -65,6 +66,7 @@ export class HeroDetail7Component implements OnChanges {
     // and deep copies of changed form model values
     const saveHero: Hero = {
       id: this.hero.id,
+      power: formModel.power,
       name: formModel.name as string,
       // addresses: formModel.sceretLairs //<-- bad
       addresses: secretLairDeepCopy
